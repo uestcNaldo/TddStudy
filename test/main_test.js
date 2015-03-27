@@ -6,7 +6,7 @@ var assert = require("assert");
 var War = require("../main/War");
 
 describe('War', function(){
-    it ("War.fight('张三', 20, 10, '李四', 20, 9)",function(){
+    it ("Test War.fight('张三', 20, 10, '李四', 20, 9) to simulation of the two attackers",function(){
         assert.equal(
             "张三攻击李四，李四受到10点伤害，剩余生命10\n" +
             "李四攻击张三，张三受到9点伤害，剩余生命11\n" +
@@ -15,7 +15,7 @@ describe('War', function(){
             War.fight('张三', 20, 10, '李四', 20, 9)
         );
     });
-    it ("War.fight('李s', 20, 9, '张san', 20, 10)",function(){
+    it ("Test War.fight('李s', 20, 9, '张san', 20, 10) to simulation of the two attackers",function(){
         assert.equal(
             "李s攻击张san，张san受到9点伤害，剩余生命11\n" +
             "张san攻击李s，李s受到10点伤害，剩余生命10\n" +
