@@ -12,14 +12,14 @@ var normal_people_class = {
 
         normal_people.fight = function(defender){
             // 此函数模拟attacker向Defender攻击一次
-            defender.hp -= normal_people.attack;
+            defender.hp -= this.attack;
             if (defender.hp < 0){
                 defender.hp = 0;
             }
 
             // 返回攻击过程
-            return fight_process_once = normal_people.name + "攻击" + defender.name + "，" +
-                                          defender.name + "受到" + normal_people.attack + "点伤害，" +
+            return fight_process_once = this.name + "攻击" + defender.name + "，" +
+                                          defender.name + "受到" + this.attack + "点伤害，" +
                                             "剩余生命" + defender.hp + "\n";
 
         };
