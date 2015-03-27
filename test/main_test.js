@@ -31,7 +31,7 @@ describe('War', function(){
         "This function output the process and result of fight.",
         function(){
         FirstPeople = War.Attacker.createNew('李s', 20, 9);
-        SecondPeople = War.Attacker.createNew('张san', 20, 9);
+        SecondPeople = War.Attacker.createNew('张san', 20, 10);
         assert.equal(
             "李s攻击张san，张san受到9点伤害，剩余生命11\n" +
             "张san攻击李s，李s受到10点伤害，剩余生命10\n" +
