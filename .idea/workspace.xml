@@ -4,7 +4,6 @@
     <list default="true" id="40b094ea-6ba3-4025-a395-fec0c0237e8e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/War.js" afterPath="$PROJECT_DIR$/main/War.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/main_test.js" afterPath="$PROJECT_DIR$/test/main_test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TddStudy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,21 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main_test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main_test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/main_test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1078">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.16424581" vertical-offset="183" max-vertical-offset="1078">
+              <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="War.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="War.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/War.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73743016" vertical-offset="0" max-vertical-offset="1430">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -56,8 +55,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/main_test.js" />
         <option value="$PROJECT_DIR$/main/War.js" />
+        <option value="$PROJECT_DIR$/test/main_test.js" />
       </list>
     </option>
   </component>
@@ -302,18 +301,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/main_test.js">
+    <entry file="file://$PROJECT_DIR$/main/War.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1078">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/War.js">
+    <entry file="file://$PROJECT_DIR$/test/main_test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73743016" vertical-offset="0" max-vertical-offset="1430">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16424581" vertical-offset="183" max-vertical-offset="1078">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
           <folding />
         </state>
       </provider>

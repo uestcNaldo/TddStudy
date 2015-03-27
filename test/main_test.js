@@ -13,8 +13,8 @@ describe('War', function(){
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
-        first_people = War.Attacker.create_new('张三', 20, 10);
-        second_people = War.Attacker.create_new('李四', 20, 9);
+        first_people = War.normal_people_class.create_new('张三', 20, 10);
+        second_people = War.normal_people_class.create_new('李四', 20, 9);
         assert.equal(
             "张三攻击李四，李四受到10点伤害，剩余生命10\n" +
             "李四攻击张三，张三受到9点伤害，剩余生命11\n" +
@@ -30,8 +30,8 @@ describe('War', function(){
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
-        first_people = War.Attacker.create_new('李s', 20, 9);
-        second_people = War.Attacker.create_new('张san', 20, 10);
+        first_people = War.normal_people_class.create_new('李s', 20, 9);
+        second_people = War.normal_people_class.create_new('张san', 20, 10);
         assert.equal(
             "李s攻击张san，张san受到9点伤害，剩余生命11\n" +
             "张san攻击李s，李s受到10点伤害，剩余生命10\n" +
