@@ -13,12 +13,14 @@ describe('War', function(){
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
+        FirstPeople = War.Attacker.createNew('张三', 20, 10);
+        SecondPeople = War.Attacker.createNew('李四', 20, 9);
         assert.equal(
             "张三攻击李四，李四受到10点伤害，剩余生命10\n" +
             "李四攻击张三，张三受到9点伤害，剩余生命11\n" +
             "张三攻击李四，李四受到10点伤害，剩余生命0\n" +
             "张三胜利\n",
-            War.fight('张三', 20, 10, '李四', 20, 9)
+            War.fight(FirstPeople, SecondPeople)
         );
     });
     it ("Test a function: " +
@@ -28,13 +30,15 @@ describe('War', function(){
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
+        FirstPeople = War.Attacker.createNew('李s', 20, 9);
+        SecondPeople = War.Attacker.createNew('张san', 20, 9);
         assert.equal(
             "李s攻击张san，张san受到9点伤害，剩余生命11\n" +
             "张san攻击李s，李s受到10点伤害，剩余生命10\n" +
             "李s攻击张san，张san受到9点伤害，剩余生命2\n" +
             "张san攻击李s，李s受到10点伤害，剩余生命0\n" +
             "张san胜利\n",
-            War.fight('李s', 20, 9, '张san', 20, 10)
+            War.fight(FirstPeople, SecondPeople)
         );
     });
 })
