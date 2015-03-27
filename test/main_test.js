@@ -6,9 +6,7 @@ var assert = require("assert");
 var War = require("../main/War");
 
 describe('War', function(){
-    it ("Test War.fight(FirstPeopleName, FirstPeopleHp, FirstPeopleAttack, SecondPeopleName, SecondPeopleHp, SecondPeopleAttack) function." +
-        "This function is simulation of the two attackers fight process." +
-        "In this test, we use War.fight('张三', 20, 10, '李四', 20, 9).",
+    it ("Test a function.This function is simulation of the two attackers fight process.",
         function(){
         assert.equal(
             "张三攻击李四，李四受到10点伤害，剩余生命10\n" +
@@ -18,9 +16,7 @@ describe('War', function(){
             War.fight('张三', 20, 10, '李四', 20, 9)
         );
     });
-    it ("Test War.fight(FirstPeopleName, FirstPeopleHp, FirstPeopleAttack, SecondPeopleName, SecondPeopleHp, SecondPeopleAttack) function." +
-        "This function is simulation of the two attackers fight process." +
-        "In this test, we use War.fight('李s', 20, 9, '张san', 20, 10)",
+    it ("Test a function.This function is simulation of the two attackers fight process.",
         function(){
         assert.equal(
             "李s攻击张san，张san受到9点伤害，剩余生命11\n" +
