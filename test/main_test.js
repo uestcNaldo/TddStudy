@@ -10,7 +10,8 @@ describe('War', function(){
         "There is two people." +
         "张三 HP 20, attack 10." +
         "李四 HP 20, attack 9." +
-        "They took turns to attack.",
+        "They took turns to attack." +
+        "This function output the process and result of fight.",
         function(){
         assert.equal(
             "张三攻击李四，李四受到10点伤害，剩余生命10\n" +
@@ -24,7 +25,8 @@ describe('War', function(){
         "There is two people." +
         "李s HP 20, attack 9." +
         "张san HP 20, attack 10." +
-        "They took turns to attack.",
+        "They took turns to attack." +
+        "This function output the process and result of fight.",
         function(){
         assert.equal(
             "李s攻击张san，张san受到9点伤害，剩余生命11\n" +
