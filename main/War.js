@@ -24,6 +24,16 @@ var normal_people_class = {
 
         };
 
+        normal_people.is_dead = function(){
+           var is_dead = false;
+
+            if (this.hp == 0){
+                is_dead = true;
+            }
+
+            return is_dead;
+        };
+
         return normal_people;
     }
 };
@@ -33,13 +43,13 @@ function fight(first_people, second_people){
 
     while (1){
         fight_process += first_people.fight(second_people);
-        if (second_people.hp == 0){
+        if (second_people.is_dead()){
             fight_process += (first_people.name + '胜利\n');
             break;
         }
 
         fight_process += second_people.fight(first_people);
-        if (first_people.hp == 0){
+        if (first_people.is_dead()){
             fight_process += (second_people.name + '胜利\n');
             break;
         }
