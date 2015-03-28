@@ -10,7 +10,7 @@ var normal_people_class = {
         normal_people.hp = hp;
         normal_people.attack = attack;
 
-        normal_people.fight = function(defender){
+        normal_people.fight_once = function(defender){
             // 此函数模拟attacker向Defender攻击一次
             defender.hp -= this.attack;
             if (defender.hp < 0){
@@ -19,13 +19,13 @@ var normal_people_class = {
 
             // 返回攻击过程
             return fight_process_once = this.name + "攻击" + defender.name + "，" +
-                                          defender.name + "受到" + this.attack + "点伤害，" +
-                                            "剩余生命" + defender.hp + "\n";
+            defender.name + "受到" + this.attack + "点伤害，" +
+            "剩余生命" + defender.hp + "\n";
 
         };
 
         normal_people.is_dead = function(){
-           var is_dead = false;
+            var is_dead = false;
 
             if (this.hp == 0){
                 is_dead = true;
@@ -42,13 +42,13 @@ function fight(first_people, second_people){
     var fight_process = "";        // 存储战斗过程和战斗结果
 
     while (1){
-        fight_process += first_people.fight(second_people);
+        fight_process += first_people.fight_once(second_people);
         if (second_people.is_dead()){
             fight_process += (first_people.name + '胜利\n');
             break;
         }
 
-        fight_process += second_people.fight(first_people);
+        fight_process += second_people.fight_once(first_people);
         if (first_people.is_dead()){
             fight_process += (second_people.name + '胜利\n');
             break;
