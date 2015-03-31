@@ -28,8 +28,8 @@ describe('War', function(){
             // 模拟first_people
             var first_people = make_mock_person("张三", 20, 10);
             first_people.attack = function () {
-                first_people.count ++;
-                switch (first_people.count){
+                this.count ++;
+                switch (this.count){
                     case 1:{
                         return "张三攻击李四，李四受到10点伤害，剩余生命10\n";
                     }
@@ -49,7 +49,7 @@ describe('War', function(){
             // 模拟second_people
             var second_people = make_mock_person("李四", 20, 9);
             second_people.attack = function(){
-                second_people.count ++;
+                this.count ++;
                 switch (second_people.count){
                     case 1:{
                         return "李四攻击张三，张三受到9点伤害，剩余生命11\n"
@@ -60,7 +60,7 @@ describe('War', function(){
                 }
             }
             second_people.is_dead = function () {
-                if (second_people.count == 1){
+                if (this.count == 1){
                     return true;
                 }
                 else{
@@ -90,7 +90,7 @@ describe('War', function(){
             // 模拟first_people
             var first_people = make_mock_person("李s", 20, 9);
             first_people.attack = function () {
-                first_people.count ++;
+                this.count ++;
                 switch (first_people.count){
                     case 1:{
                         return "李s攻击张san，张san受到9点伤害，剩余生命11\n";
@@ -104,7 +104,7 @@ describe('War', function(){
                 }
             }
             first_people.is_dead = function () {
-                if (first_people.count == 2){
+                if (this.count == 2){
                     return true;
                 }
                 else {
@@ -116,7 +116,7 @@ describe('War', function(){
             var second_people = make_mock_person("张san", 20, 10);
             second_people.attack = function () {
                 second_people.count ++;
-                switch (second_people.count) {
+                switch (this.count) {
                     case 1:{
                         return "张san攻击李s，李s受到10点伤害，剩余生命10\n";
                     }
