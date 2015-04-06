@@ -5,17 +5,18 @@
 var assert = require("assert");
 var War = require("../main/War");
 
-function make_mock_person (name, hp, aggerssivity) {
-    var mock_person = new Object();
-    mock_person.name = name;
-    mock_person.hp = hp;
-    mock_person.aggerssivity = aggerssivity;
-    mock_person.count = 0;      // 记录第几次调用attack函数
-
-    return mock_person;
-}
 
 describe('War', function(){
+    function make_mock_person (name, hp, aggerssivity) {
+        var mock_person = new Object();
+        mock_person.name = name;
+        mock_person.hp = hp;
+        mock_person.aggerssivity = aggerssivity;
+        mock_person.count = 0;      // 记录第几次调用attack函数
+
+        return mock_person;
+    }
+
     // 测试War.fight()函数
     it (
         "Test a function: " +
