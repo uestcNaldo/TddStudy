@@ -156,14 +156,14 @@ describe('War', function(){
         "Test a function: " +
         "There is two people." +
         "ZhangSan Hp 20, attack 10, job 战士, arms_name 优质木棒, arms_aggressivity 3, armor 6." +
-        "LiSi Hp 11, attack 20, job 普通人." +
+        "LiSi Hp 10, attack 20, job 普通人." +
         "ZhangSan attack LiSi once." +
         "This function output this process",
         function(){
             first_people = War.normal_people_class.create_new('ZhangSan', 20, 10, "战士", "优质木棒", 3, 6);
-            second_people = War.normal_people_class.create_new('LiSi', 15, 20, "普通人");
+            second_people = War.normal_people_class.create_new('LiSi', 10, 20, "普通人");
             assert.equal(
-                "战士ZhangSan用优质木棒攻击普通人LiSi，LiSi受到13点伤害，剩余生命2\n",
+                "战士ZhangSan用优质木棒攻击普通人LiSi，LiSi受到10点伤害，剩余生命0\n",
                 first_people.attack(second_people)
             );
         }

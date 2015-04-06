@@ -42,7 +42,7 @@ var normal_people_class = {
 
             defender.hp -= damage_by_attack;
             if (defender.hp < 0){
-                damage_by_attack = defender + damage_by_attck;
+                damage_by_attack = defender.hp + damage_by_attack;
                 defender.hp = 0;
             }
 
