@@ -64,6 +64,10 @@ var normal_people_class = {
             return is_dead;
         };
 
+        normal_people.get_name = function(){
+            return this.name;
+        };
+
         return normal_people;
     }
 };
@@ -74,13 +78,13 @@ function fight(first_people, second_people){
     while (1){
         fight_process += first_people.attack(second_people);
         if (second_people.is_dead()){
-            fight_process += (first_people.name + '胜利\n');
+            fight_process += (first_people.get_name() + '胜利\n');
             break;
         }
 
         fight_process += second_people.attack(first_people);
         if (first_people.is_dead()){
-            fight_process += (second_people.name + '胜利\n');
+            fight_process += (second_people.get_name() + '胜利\n');
             break;
         }
     }

@@ -7,22 +7,6 @@ var War = require("../main/War");
 
 
 describe('War', function(){
-    function make_mock_person (name, hp, aggressivity, job, arms_name, arms_aggressivity, armor) {
-        var mock_person = new Object();
-        mock_person.name = name;
-        mock_person.hp = hp;
-        mock_person.aggressivity = aggressivity;
-        mock_person.job = job;
-        mock_person.arms = new Object();
-        mock_person.arms.name = arms_name;
-        mock_person.arms.aggressivity = arms_aggressivity;
-        mock_person.armor = armor;
-
-        mock_person.count = 0;      // 记录第几次调用attack函数
-
-        return mock_person;
-    }
-
     // 测试War.fight()函数
     it (
         "Test a function: " +
@@ -33,39 +17,30 @@ describe('War', function(){
         "This function output the process and result of fight.",
         function(){
             // 模拟first_people
-            var first_people = make_mock_person("张三", 20, 10, "战士", "优质木棒", 3, null);
+            var first_people = new Object();
+            first_people.count = 0;
+            first_people.fight_process = [];
+            first_people.fight_process[0] = "战士张三用优质木棒攻击普通人李四，李四受到13点伤害，剩余生命7\n";
+            first_people.fight_process[1] = "战士张三用优质木棒攻击普通人李四，李四受到7点伤害，剩余生命0\n";
             first_people.attack = function () {
-                this.count ++;
-                switch (this.count){
-                    case 1:{
-                        return "战士张三用优质木棒攻击普通人李四，李四受到13点伤害，剩余生命7\n";
-                    }
-                    case 2:{
-                        return "战士张三用优质木棒攻击普通人李四，李四受到7点伤害，剩余生命0\n";
-                    }
-                    default :{
-                        return;
-                    }
-                }
-            }
+                return this.fight_process[this.count++];
+            };
             first_people.is_dead = function () {
                 return false;
-            }
+            };
+            first_people.get_name = function () {
+                return "张三";
+            };
 
 
             // 模拟second_people
-            var second_people = make_mock_person("李四", 20, 9, "普通人");
+            var second_people = new Object();
+            second_people.count = 0;
+            second_people.fight_process = [];
+            second_people.fight_process[0] = "普通人李四攻击张三，张三受到9点伤害，剩余生命11\n";
             second_people.attack = function(){
-                this.count ++;
-                switch (second_people.count){
-                    case 1:{
-                        return "普通人李四攻击张三，张三受到9点伤害，剩余生命11\n"
-                    }
-                    default:{
-                        return;
-                    }
-                }
-            }
+                return this.fight_process[this.count++];
+            };
             second_people.is_dead = function () {
                 if (this.count == 1){
                     return true;
@@ -73,7 +48,7 @@ describe('War', function(){
                 else{
                     return false;
                 }
-            }
+            };
 
             // 测试
            assert.equal(
@@ -95,21 +70,14 @@ describe('War', function(){
         "This function output the process and result of fight.",
         function(){
             // 模拟first_people
-            var first_people = make_mock_person("李s", 20, 9, "普通人");
+            var first_people = new Object();
+            first_people.count = 0;
+            first_people.fight_process = [];
+            first_people.fight_process[0] = "普通人李s攻击战士张san，张san受到3点伤害，剩余生命17\n";
+            first_people.fight_process[1] = "普通人李s攻击战士张san，张san受到3点伤害，剩余生命14\n";
             first_people.attack = function () {
-                this.count ++;
-                switch (first_people.count){
-                    case 1:{
-                        return "普通人李s攻击战士张san，张san受到3点伤害，剩余生命17\n";
-                    }
-                    case 2:{
-                        return "普通人李s攻击战士张san，张san受到3点伤害，剩余生命14\n";
-                    }
-                    default:{
-                        return;
-                    }
-                }
-            }
+                return this.fight_process[this.count++];
+            };
             first_people.is_dead = function () {
                 if (this.count == 2){
                     return true;
@@ -117,27 +85,23 @@ describe('War', function(){
                 else {
                     return false;
                 }
-            }
+            };
 
             // 模拟second_people
-            var second_people = make_mock_person("张san", 20, 10, "战士", "XX剑", 6, 6);
+            var second_people = new Object();
+            second_people.count  = 0;
+            second_people.fight_process = [];
+            second_people.fight_process[0] = "战士张san用XX剑攻击普通人李s，李s受到16点伤害，剩余生命4\n";
+            second_people.fight_process[1] = "战士张san用XX剑攻击普通人李s，李s受到4点伤害，剩余生命0\n";
             second_people.attack = function () {
-                second_people.count ++;
-                switch (this.count) {
-                    case 1:{
-                        return "战士张san用XX剑攻击普通人李s，李s受到16点伤害，剩余生命4\n";
-                    }
-                    case 2:{
-                        return "战士张san用XX剑攻击普通人李s，李s受到4点伤害，剩余生命0\n";
-                    }
-                    default :{
-                        return;
-                    }
-                }
-            }
+                return this.fight_process[this.count++];
+            };
             second_people.is_dead = function () {
                 return false;
-            }
+            };
+            second_people.get_name = function () {
+                return "张san";
+            };
 
             // 测试
             assert.equal(
@@ -185,4 +149,14 @@ describe('War', function(){
             );
         }
     );
+
+    it (
+        "Test a function: " +
+        "This fucntion return the people name." +
+        "Such as 张三",
+        function(){
+            people = War.normal_people_class.create_new(name='张三');
+            assert.equal('张三',people. get_name());
+        }
+    )
 })
