@@ -10,9 +10,9 @@ var normal_people_class = {
         normal_people.hp = hp;
         normal_people.aggressivity = aggressivity;
         normal_people.job = job;
-        if (normal_people.job == "战士"){
-            if (arms_name != null && arms_aggressivity != null){
-                normal_people.arms = new Object();
+        if (normal_people.job == "战士") {
+            if (arms_name != null && arms_aggressivity != null) {
+                normal_people.arms = {};
                 normal_people.arms.name = arms_name;
                 normal_people.arms.aggressivity = arms_aggressivity;
             }
@@ -24,8 +24,7 @@ var normal_people_class = {
 
         normal_people.attack = function(defender){
             // 此函数模拟attacker向Defender攻击一次
-            var fight_process_once = "";    // 存储此次攻击过程
-            fight_process_once = this.job + this.name;
+            var fight_process_once = this.job + this.name;
 
             var damage_by_attack = this.aggressivity;
 
@@ -73,20 +72,20 @@ var normal_people_class = {
 };
 
 function fight(first_people, second_people){
-    var fight_process = "";        // 存储战斗过程和战斗结果
+            var fight_process = "";        // 存储战斗过程和战斗结果
 
-    while (1){
-        fight_process += first_people.attack(second_people);
-        if (second_people.is_dead()){
-            fight_process += (first_people.get_name() + '胜利\n');
-            break;
-        }
+            while (1){
+                fight_process += first_people.attack(second_people);
+                if (second_people.is_dead()){
+                    fight_process += (first_people.get_name() + '胜利\n');
+                    break;
+                }
 
-        fight_process += second_people.attack(first_people);
-        if (first_people.is_dead()){
-            fight_process += (second_people.get_name() + '胜利\n');
-            break;
-        }
+                fight_process += second_people.attack(first_people);
+                if (first_people.is_dead()){
+                    fight_process += (second_people.get_name() + '胜利\n');
+                    break;
+                }
     }
 
     return fight_process;
