@@ -37,7 +37,7 @@ describe('normal_people_class', function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "战士", "圣剑", 10, 0);
             var second_people = people.normal_people_class.create_new("ZhangSan", 30, 10, "战士", "优质木棒", 3, 0);
             assert.equal(
-                "战士LiSi攻击战士ZhangSan，ZhangSan受到30点伤害，剩余生命0\n",
+                "战士LiSi用圣剑攻击战士ZhangSan，ZhangSan受到30点伤害，剩余生命0\n",
                 first_people.attack(second_people)
             )
         }
