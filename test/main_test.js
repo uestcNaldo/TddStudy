@@ -11,8 +11,8 @@ describe('War', function(){
     it (
         "Test a function: " +
         "There is two people." +
-        "张三 HP 20, aggressivity 10, job 战士, arms_name 优质木棒, arms_aggressivity 3, armor null." +
-        "李四 HP 20, attack 9, job 普通人" +
+        "张三 HP 20, aggressivity 10, role 战士, arms_name 优质木棒, arms_aggressivity 3, armor null." +
+        "李四 HP 20, attack 9, role 普通人" +
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
@@ -57,8 +57,8 @@ describe('War', function(){
     it (
         "Test a function: " +
         "There is two people." +
-        "李s HP 20, attack 9, job 普通人." +
-        "张san HP 20, attack 10, job 战士, arms_name XX剑, arms_aggressivity 6, armor 6." +
+        "李s HP 20, attack 9, role 普通人." +
+        "张san HP 20, attack 10, role 战士, arms_name XX剑, arms_aggressivity 6, armor 6." +
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
@@ -105,8 +105,8 @@ describe('War', function(){
     it (
         "Test a function: " +
         "There is two people." +
-        "ZhangSan Hp 20, attack 10, job 战士, arms_name 优质木棒, arms_aggressivity 3, armor 6." +
-        "LiSi Hp 10, attack 20, job 普通人." +
+        "ZhangSan Hp 20, attack 10, role 战士, arms_name 优质木棒, arms_aggressivity 3, armor 6." +
+        "LiSi Hp 10, attack 20, role 普通人." +
         "ZhangSan attack LiSi once." +
         "This function output this process",
         function(){
@@ -118,31 +118,4 @@ describe('War', function(){
             );
         }
     );
-
-    it (
-        "Test a function: " +
-        "There is two people." +
-        "LiSi Hp 11, attack 20, job 普通人." +
-        "ZhangSan Hp 20, attack 10, job 战士, arms_name 优质木棒, arms_aggressivity 3, armor 6." +
-        "LiSi attack ZhangSan once." +
-        "This function output this process",
-        function(){
-            var first_people = War.normal_people_class.create_new('LiSi', 15, 20, "普通人");
-            var second_people = War.normal_people_class.create_new('ZhangSan', 20, 10, "战士", "优质木棒", 3, 6);
-            assert.equal(
-                "普通人LiSi攻击战士ZhangSan，ZhangSan受到14点伤害，剩余生命6\n",
-                first_people.attack(second_people)
-            );
-        }
-    );
-
-    it (
-        "Test a function: " +
-        "This fucntion return the people name." +
-        "Such as 张三",
-        function(){
-            var people = War.normal_people_class.create_new('张三');
-            assert.equal('张三',people. get_name());
-        }
-    )
-})
+});
