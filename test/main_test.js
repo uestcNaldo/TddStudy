@@ -100,22 +100,4 @@ describe('War', function(){
             );
         }
     );
-
-    // 测试War.normal_people_class.attack()函数
-    it (
-        "Test a function: " +
-        "There is two people." +
-        "ZhangSan Hp 20, attack 10, role 战士, arms_name 优质木棒, arms_aggressivity 3, armor 6." +
-        "LiSi Hp 10, attack 20, role 普通人." +
-        "ZhangSan attack LiSi once." +
-        "This function output this process",
-        function(){
-            var first_people = War.normal_people_class.create_new('ZhangSan', 20, 10, "战士", "优质木棒", 3, 6);
-            var second_people = War.normal_people_class.create_new('LiSi', 10, 20, "普通人");
-            assert.equal(
-                "战士ZhangSan用优质木棒攻击普通人LiSi，LiSi受到10点伤害，剩余生命0\n",
-                first_people.attack(second_people)
-            );
-        }
-    );
 });
