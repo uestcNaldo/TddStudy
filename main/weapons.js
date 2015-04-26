@@ -2,14 +2,14 @@
  * Created by lookerson on 2015/4/26.
  */
 
-var arms_class = {
+var weapons_class = {
     create_new: function(name, aggressivity){
-        var arms = {};
+        var weapons = {};
 
-        arms.name = name;
-        arms.aggressivity = aggressivity;
+        weapons.name = name;
+        weapons.aggressivity = aggressivity;
 
-        return arms;
+        return weapons;
     }
 };
 
