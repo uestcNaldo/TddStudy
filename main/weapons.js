@@ -3,14 +3,30 @@
  */
 
 var weapons_class = {
-    create_new: function(name, aggressivity){
+    create_new : function(name, aggressivity){
         var weapons = {};
 
         weapons.name = name;
         weapons.aggressivity = aggressivity;
 
+        weapons.get_aggressivity = function (){
+            if (this.aggressivity){
+                return this.aggressivity;
+            }
+
+            return 0;
+        };
+
+        weapons.get_weapons_name = function (){
+            if (this.name){
+                return '用' + this.name;
+            }
+
+            return "";
+        };
+
         return weapons;
     }
 };
 
-exports.arms_class = arms_class;
+exports.weapons_class = weapons_class;
