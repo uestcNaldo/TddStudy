@@ -6,30 +6,19 @@ var weapons_class = {
     create_new : function(name, aggressivity){
         var weapons = {};
 
-        weapons.name = name;
-        weapons.aggressivity = aggressivity;
+        weapons.name = (name == undefined ? "" : name);
+        weapons.aggressivity = (aggressivity == undefined ? 0 : aggressivity);
 
         weapons.get_aggressivity = function (){
-            if (this.aggressivity){
-                return this.aggressivity;
-            }
+            return this.aggressivity;
+        };
 
-            return 0;
+        weapons.get_weapons_name = function () {
+            return this.name;
         };
 
         weapons.get_is_use_weapons = function(){
-            if (this.name){
-                return '用';
-            }
-            return '';
-        };
-
-        weapons.get_weapons_name = function (){
-            if (this.name){
-                return this.name;
-            }
-
-            return "";
+            return (this.name != "");
         };
 
         return weapons;

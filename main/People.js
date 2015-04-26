@@ -5,27 +5,14 @@
 var weapons_module = require("./weapons.js");
 
 var normal_people_class = {
-    create_new : function(name, hp, aggressivity, role, weapons_name, weapons_aggressivity, armor){
+    create_new : function(name, hp, aggressivity){
         var normal_people = {};
         normal_people.name = name;
         normal_people.hp = hp;
         normal_people.aggressivity = aggressivity;
-
-        normal_people.role = role;
-        if (normal_people.role == "战士"){
-            normal_people.weapons = weapons_module.weapons_class.create_new(weapons_name, weapons_aggressivity);
-            normal_people.armor = armor;
-        }
-        if (normal_people.role == "普通人"){
-            normal_people.weapons = weapons_module.weapons_class.create_new();
-            normal_people.armor = 0;
-        }
+        normal_people.role = "普通人";
 
         normal_people.defense_process = function(damage_by_attacker){
-            if (this.armor){
-                damage_by_attacker -= this.armor;
-            }
-
             this.hp -= damage_by_attacker;
             if (this.hp < 0){
                 damage_by_attacker = this.hp + damage_by_attacker;
@@ -37,9 +24,9 @@ var normal_people_class = {
         };
 
         normal_people.attack_process = function(){
-            var fight_process_once = this.role + this.name + this.weapons.get_is_use_weapons() + this.weapons.get_weapons_name();
+            var fight_process_once = this.role + this.name;
 
-            var damage_by_attack = this.aggressivity + this.weapons.get_aggressivity();
+            var damage_by_attack = this.aggressivity;
 
             return {
                 'process' : fight_process_once + "攻击",
@@ -68,4 +55,43 @@ var normal_people_class = {
     }
 };
 
+var warrior_class = {
+    create_new : function(name, hp, aggressivity, weapons_name, weapons_aggressivity, armor){
+        var warrior = normal_people_class.create_new(name, hp, aggressivity);
+        warrior.role = '战士';
+
+        warrior.weapons = weapons_module.weapons_class.create_new(weapons_name, weapons_aggressivity);
+        warrior.armor = armor == undefined ? 0 : armor;
+
+        warrior.defense_process = function(damage_by_attacker){
+            if (this.armor){
+                damage_by_attacker -= this.armor;
+            }
+
+            this.hp -= damage_by_attacker;
+            if (this.hp < 0){
+                damage_by_attacker = this.hp + damage_by_attacker;
+                this.hp = 0;
+            }
+
+            return this.name + "受到" + damage_by_attacker + "点伤害，" +
+                "剩余生命" + this.hp + "\n";
+        };
+
+        warrior.attack_process = function(){
+            var fight_process_once = this.role + this.name + (this.weapons.get_is_use_weapons() ? "用" : "") + this.weapons.get_weapons_name();
+
+            var damage_by_attack = this.aggressivity + this.weapons.get_aggressivity();
+
+            return {
+                'process' : fight_process_once + "攻击",
+                'damage' : damage_by_attack
+            };
+        };
+
+        return warrior;
+    }
+};
+
 exports.normal_people_class = normal_people_class;
+exports.warrior_class = warrior_class;
