@@ -45,11 +45,11 @@ describe('War', function(){
 
             // 测试
            assert.equal(
-                "战士张三用优质木棒攻击普通人李四，李四受到13点伤害，剩余生命7\n" +
-                "普通人李四攻击张三，张三受到9点伤害，剩余生命11\n" +
-                "战士张三用优质木棒攻击普通人李四，李四受到7点伤害，剩余生命0\n" +
-                "张三胜利\n",
-                War.fight(first_people, second_people)
+                War.fight(first_people, second_people),
+               "战士张三用优质木棒攻击普通人李四，李四受到13点伤害，剩余生命7\n" +
+               "普通人李四攻击张三，张三受到9点伤害，剩余生命11\n" +
+               "战士张三用优质木棒攻击普通人李四，李四受到7点伤害，剩余生命0\n" +
+               "张三胜利\n"
             );
         }
     );
@@ -91,12 +91,12 @@ describe('War', function(){
 
             // 测试
             assert.equal(
+                War.fight(first_people, second_people),
                 "普通人李s攻击战士张san，张san受到3点伤害，剩余生命17\n" +
                 "战士张san用XX剑攻击普通人李s，李s受到16点伤害，剩余生命4\n" +
                 "普通人李s攻击战士张san，张san受到3点伤害，剩余生命14\n" +
                 "战士张san用XX剑攻击普通人李s，李s受到4点伤害，剩余生命0\n" +
-                "张san胜利\n",
-                War.fight(first_people, second_people)
+                "张san胜利\n"
             );
         }
     );

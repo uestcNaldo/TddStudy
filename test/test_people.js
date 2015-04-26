@@ -21,8 +21,8 @@ describe('normal_people_class', function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "普通人");
             var second_people = people.normal_people_class.create_new("ZhangSan", 20, 10, "战士", "优质木棒", 3, 6);
             assert.equal(
-                "普通人LiSi攻击战士ZhangSan，ZhangSan受到14点伤害，剩余生命6\n",
-                first_people.attack(second_people)
+                first_people.attack(second_people),
+                "普通人LiSi攻击战士ZhangSan，ZhangSan受到14点伤害，剩余生命6\n"
             );
         }
     );
@@ -37,8 +37,8 @@ describe('normal_people_class', function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "战士", "圣剑", 10, 0);
             var second_people = people.normal_people_class.create_new("ZhangSan", 30, 10, "战士", "优质木棒", 3, 0);
             assert.equal(
-                "战士LiSi用圣剑攻击战士ZhangSan，ZhangSan受到30点伤害，剩余生命0\n",
-                first_people.attack(second_people)
+                first_people.attack(second_people),
+                "战士LiSi用圣剑攻击战士ZhangSan，ZhangSan受到30点伤害，剩余生命0\n"
             )
         }
     );
@@ -53,8 +53,8 @@ describe('normal_people_class', function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "战士");
             var second_people = people.normal_people_class.create_new("ZhangSan", 10, 10, "普通人");
             assert.equal(
-                "战士LiSi攻击普通人ZhangSan，ZhangSan受到10点伤害，剩余生命0\n",
-                first_people.attack(second_people)
+                first_people.attack(second_people),
+                "战士LiSi攻击普通人ZhangSan，ZhangSan受到10点伤害，剩余生命0\n"
             )
         }
     );
@@ -67,7 +67,7 @@ describe('normal_people_class', function(){
         "The function should return true",
         function(){
             var mock_people = people.normal_people_class.create_new('张三', 0);
-            assert.equal(true, mock_people.is_dead());
+            assert.equal(mock_people.is_dead(), true);
         }
     );
 
@@ -78,7 +78,7 @@ describe('normal_people_class', function(){
         "The function should return false",
         function(){
             var mock_people = people.normal_people_class.create_new('张三', 1);
-            assert.equal(false, mock_people.is_dead());
+            assert.equal(mock_people.is_dead(), false);
         }
     );
 
@@ -89,7 +89,7 @@ describe('normal_people_class', function(){
         "Such as the people named 张三 and the get_name() return 张三",
         function(){
             var mock_people = people.normal_people_class.create_new('张三');
-            assert.equal('张三', mock_people.get_name());
+            assert.equal(mock_people.get_name(), '张三');
         }
     )
 });
