@@ -21,7 +21,7 @@ var normal_people_class = {
             normal_people.armor = 0;
         }
 
-        normal_people.defense_against = function(damage_by_attacker){
+        normal_people.defense_process = function(damage_by_attacker){
             if (this.armor){
                 damage_by_attacker -= this.armor;
             }
@@ -36,8 +36,8 @@ var normal_people_class = {
                     "剩余生命" + this.hp + "\n";
         };
 
-        normal_people.attacker_info = function(){
-            var fight_process_once = this.role + this.name + this.weapons.get_weapons_name();
+        normal_people.attack_process = function(){
+            var fight_process_once = this.role + this.name + this.weapons.get_is_use_weapons() + this.weapons.get_weapons_name();
 
             var damage_by_attack = this.aggressivity + this.weapons.get_aggressivity();
 
@@ -48,10 +48,10 @@ var normal_people_class = {
         };
 
         normal_people.attack = function(defender){
-            var attacker_info_of_this_process = this.attacker_info();
+            var attacker_info_of_this_process = this.attack_process();
             var fight_process_once = attacker_info_of_this_process['process'] +  defender.role + defender.get_name() + "，";
 
-            fight_process_once += defender.defense_against(attacker_info_of_this_process['damage']);
+            fight_process_once += defender.defense_process(attacker_info_of_this_process['damage']);
 
             return fight_process_once;
         };
