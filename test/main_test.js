@@ -82,7 +82,7 @@ describe('War', function(){
             second_people.get_name = function () {
                 return "张san";
             };
-            
+
             assert.equal(
                 War.fight(first_people, second_people),
                 "普通人李s攻击战士张san，张san受到3点伤害，剩余生命17\n" +
