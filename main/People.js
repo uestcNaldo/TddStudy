@@ -12,35 +12,35 @@ var normal_people_class = {
         normal_people.aggressivity = aggressivity;
         normal_people.role = "普通人";
 
-        normal_people.defense_process = function(damage_by_attacker){
-            this.hp -= damage_by_attacker;
+        normal_people.calculate_hp = function(damage_by_attacker){
+            this.hp -= (damage_by_attacker >= 0 ? damage_by_attacker : 0);
             if (this.hp < 0){
                 damage_by_attacker = this.hp + damage_by_attacker;
                 this.hp = 0;
             }
 
             return this.name + "受到" + damage_by_attacker + "点伤害，" +
-                    "剩余生命" + this.hp + "\n";
+                "剩余生命" + this.hp + "\n";
+        };
+
+        normal_people.defense_process = function(damage_by_attacker){
+            return this.calculate_hp(damage_by_attacker);
         };
 
         normal_people.attack_process = function(){
-            var fight_process_once = this.role + this.name;
-
-            var damage_by_attack = this.aggressivity;
-
             return {
-                'process' : fight_process_once + "攻击",
-                'damage' : damage_by_attack
+                process : this.role + this.name + "攻击",
+                damage : this.aggressivity
             };
         };
 
         normal_people.attack = function(defender){
-            var attacker_info_of_this_process = this.attack_process();
-            var fight_process_once = attacker_info_of_this_process['process'] +  defender.role + defender.get_name() + "，";
+            var info_of_attack_process = this.attack_process();
+            var fight_process = info_of_attack_process.process + defender.role + defender.get_name() + "，";
 
-            fight_process_once += defender.defense_process(attacker_info_of_this_process['damage']);
+            fight_process += defender.defense_process(info_of_attack_process.damage);
 
-            return fight_process_once;
+            return fight_process;
         };
 
         normal_people.is_dead = function() {
@@ -61,21 +61,12 @@ var warrior_class = {
         warrior.role = '战士';
 
         warrior.weapons = weapons_module.weapons_class.create_new(weapons_name, weapons_aggressivity);
-        warrior.armor = armor == undefined ? 0 : armor;
+        warrior.armor = armor ? armor : 0;
 
         warrior.defense_process = function(damage_by_attacker){
-            if (this.armor){
-                damage_by_attacker -= this.armor;
-            }
+            damage_by_attacker -= this.armor;
 
-            this.hp -= damage_by_attacker;
-            if (this.hp < 0){
-                damage_by_attacker = this.hp + damage_by_attacker;
-                this.hp = 0;
-            }
-
-            return this.name + "受到" + damage_by_attacker + "点伤害，" +
-                "剩余生命" + this.hp + "\n";
+            return this.calculate_hp(damage_by_attacker);
         };
 
         warrior.attack_process = function(){
