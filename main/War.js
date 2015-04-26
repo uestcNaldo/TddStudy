@@ -18,19 +18,17 @@ function fight_people_once(attacker, defender) {
 }
 
 function fight(first_people, second_people){
-    var fight_process = "";        // 存储战斗过程和战斗结果
+    var fight_process = "";
     var one_people_win = false;
 
     var attacker = first_people;
     var defender = second_people;
 
     do{
-        // 攻击者向防御者攻击
         var process_and_result  = fight_people_once(attacker, defender);
         fight_process += process_and_result['process'];
         one_people_win = process_and_result['result'];
 
-        // 交换攻击者和防御者
         var temp_people = attacker;
         attacker = defender;
         defender = temp_people;

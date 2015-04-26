@@ -7,9 +7,6 @@ var people = require("../main/People");
 
 
 describe('normal_people_class', function(){
-    // 测试normal_people_class
-
-    // 测试normal_people_class.attack()
     it (
         "Test a function: " +
         "There is two people." +
@@ -59,7 +56,6 @@ describe('normal_people_class', function(){
         }
     );
 
-    // 测试normal_people_class.is_dead()
     it(
         "Test a function: " +
         "This function to determine whether a person died." +
@@ -82,7 +78,6 @@ describe('normal_people_class', function(){
         }
     );
 
-    // 测试normal_people_class.get_name()
     it (
         "Test a function: " +
         "This function return the people name." +

@@ -6,9 +6,6 @@ var assert = require("assert");
 var weapons = require("../main/weapons.js");
 
 describe("weapons", function(){
-    // 测试weapons_class
-
-    // 测试weapons.get_aggressivity()
     it(
         "Test a function: " +
         "There is a weapons named 圣剑. It's aggressivity is 10" +
@@ -28,7 +25,6 @@ describe("weapons", function(){
         }
     );
 
-    // 测试weapons.get_weapons_name()
     it(
         "Test a function: " +
         "There is a weapons named 木棒." +

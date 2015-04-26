@@ -7,7 +7,6 @@ var War = require("../main/War");
 
 
 describe('War', function(){
-    // 测试War.fight()函数
     it (
         "Test a function: " +
         "There is two people." +
@@ -16,7 +15,6 @@ describe('War', function(){
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
-            // 模拟first_people
             var first_people = {};
             first_people.count = 0;
             first_people.fight_process = ["战士张三用优质木棒攻击普通人李四，李四受到13点伤害，剩余生命7\n",
@@ -32,7 +30,6 @@ describe('War', function(){
             };
 
 
-            // 模拟second_people
             var second_people = {};
             second_people.count = 0;
             second_people.fight_process = ["普通人李四攻击张三，张三受到9点伤害，剩余生命11\n"];
@@ -43,7 +40,6 @@ describe('War', function(){
                 return (this.count == 1);
             };
 
-            // 测试
            assert.equal(
                 War.fight(first_people, second_people),
                "战士张三用优质木棒攻击普通人李四，李四受到13点伤害，剩余生命7\n" +
@@ -62,7 +58,6 @@ describe('War', function(){
         "They took turns to attack." +
         "This function output the process and result of fight.",
         function(){
-            // 模拟first_people
             var first_people = {};
             first_people.count = 0;
             first_people.fight_process = ["普通人李s攻击战士张san，张san受到3点伤害，剩余生命17\n",
@@ -74,7 +69,6 @@ describe('War', function(){
                 return (this.count == 2);
             };
 
-            // 模拟second_people
             var second_people = {};
             second_people.count  = 0;
             second_people.fight_process = ["战士张san用XX剑攻击普通人李s，李s受到16点伤害，剩余生命4\n",
@@ -88,8 +82,7 @@ describe('War', function(){
             second_people.get_name = function () {
                 return "张san";
             };
-
-            // 测试
+            
             assert.equal(
                 War.fight(first_people, second_people),
                 "普通人李s攻击战士张san，张san受到3点伤害，剩余生命17\n" +
