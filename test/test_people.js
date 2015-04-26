@@ -46,23 +46,46 @@ describe('normal_people_class', function(){
         "Test a function: " +
         "There is two people." +
         "LiSi Hp 11, attack 20, role 战士, no arms, no armor." +
-        "ZhangSan Hp 20, attack 10, role 普通人." +
+        "ZhangSan Hp 10, attack 10, role 普通人." +
         "LiSi attack ZhangSan once." +
         "This function output this process",
         function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "战士");
-            var second_people = people.normal_people_class.create_new("ZhangSan", 20, 10, "普通人");
+            var second_people = people.normal_people_class.create_new("ZhangSan", 10, 10, "普通人");
             assert.equal(
-                "战士LiSi攻击普通人ZhangSan，ZhangSan受到20点伤害，剩余生命0\n",
+                "战士LiSi攻击普通人ZhangSan，ZhangSan受到10点伤害，剩余生命0\n",
                 first_people.attack(second_people)
             )
+        }
+    );
+
+    // 测试normal_people_class.is_dead()
+    it(
+        "Test a function: " +
+        "This function to determine whether a person died." +
+        "In this test, the people named 张三 and his hp is 0." +
+        "The function should return true",
+        function(){
+            var mock_people = people.normal_people_class.create_new('张三', 0);
+            assert.equal(true, mock_people.is_dead());
+        }
+    );
+
+    it(
+        "Test a function: " +
+        "This function to determine whether a person died." +
+        "In this test, the people named 张三 and his hp is 1." +
+        "The function should return false",
+        function(){
+            var mock_people = people.normal_people_class.create_new('张三', 1);
+            assert.equal(false, mock_people.is_dead());
         }
     );
 
     // 测试normal_people_class.get_name()
     it (
         "Test a function: " +
-        "This fucntion return the people name." +
+        "This function return the people name." +
         "Such as the people named 张三 and the get_name() return 张三",
         function(){
             var mock_people = people.normal_people_class.create_new('张三');
