@@ -8,12 +8,9 @@ var War = require("../main/War");
 
 describe('War', function(){
     it (
-        "Test a function: " +
-        "There is two people." +
-        "张三 HP 20, aggressivity 10, role 战士, arms_name 优质木棒, arms_aggressivity 3, armor null." +
-        "李四 HP 20, attack 9, role 普通人" +
-        "They took turns to attack." +
-        "This function output the process and result of fight.",
+        "Test a function, it should return the process and result of two people fight." +
+        "张三 HP 20, aggressivity 10, role 战士, arms_name 优质木棒, arms_aggressivity 3" +
+        "李四 HP 20, attack 9, role 普通人",
         function(){
             var first_people = {};
             first_people.count = 0;
@@ -28,7 +25,6 @@ describe('War', function(){
             first_people.get_name = function () {
                 return "张三";
             };
-
 
             var second_people = {};
             second_people.count = 0;
@@ -51,12 +47,9 @@ describe('War', function(){
     );
 
     it (
-        "Test a function: " +
-        "There is two people." +
+        "Test a function, it should return the process and result of two people fight." +
         "李s HP 20, attack 9, role 普通人." +
-        "张san HP 20, attack 10, role 战士, arms_name XX剑, arms_aggressivity 6, armor 6." +
-        "They took turns to attack." +
-        "This function output the process and result of fight.",
+        "张san HP 20, attack 10, role 战士, arms_name XX剑, arms_aggressivity 6, armor 6.",
         function(){
             var first_people = {};
             first_people.count = 0;

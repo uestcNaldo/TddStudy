@@ -8,12 +8,9 @@ var people = require("../main/People");
 
 describe('normal_people_class', function(){
     it (
-        "Test a function: " +
-        "There is two people." +
-        "LiSi Hp 11, attack 20, role 普通人." +
-        "ZhangSan Hp 20, attack 10, role 战士, arms_name 优质木棒, arms_aggressivity 3, armor 6." +
-        "LiSi attack ZhangSan once." +
-        "This function output this process",
+        "Test a function, it should return one attack process of two people. " +
+        "LiSi attack 20, role 普通人." +
+        "ZhangSan Hp 20, role 战士, armor 6.",
         function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "普通人");
             var second_people = people.normal_people_class.create_new("ZhangSan", 20, 10, "战士", "优质木棒", 3, 6);
@@ -24,12 +21,9 @@ describe('normal_people_class', function(){
         }
     );
     it (
-        "Test a function: " +
-        "There is two people." +
-        "LiSi Hp 11, attack 20, role 战士, arms_name 圣剑, arms_aggressivity 10, armor 0." +
-        "ZhangSan Hp 30, attack 10, role 战士, arms_name 优质木棒, arms_aggressivity 3, armor 0." +
-        "LiSi attack ZhangSan once." +
-        "This function ouput this process",
+        "Test a function, it should return one attack process of two people. " +
+        "LiSi attack 20, role 战士, arms_name 圣剑, arms_aggressivity 10." +
+        "ZhangSan Hp 30, role 战士, armor 0.",
         function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "战士", "圣剑", 10, 0);
             var second_people = people.normal_people_class.create_new("ZhangSan", 30, 10, "战士", "优质木棒", 3, 0);
@@ -40,12 +34,9 @@ describe('normal_people_class', function(){
         }
     );
     it(
-        "Test a function: " +
-        "There is two people." +
-        "LiSi Hp 11, attack 20, role 战士, no arms, no armor." +
-        "ZhangSan Hp 10, attack 10, role 普通人." +
-        "LiSi attack ZhangSan once." +
-        "This function output this process",
+        "Test a function, it should return one attack process of two people. " +
+        "LiSi attack 20, role 战士, no arms, no armor." +
+        "ZhangSan Hp 10, role 普通人.",
         function(){
             var first_people = people.normal_people_class.create_new("LiSi", 11, 20, "战士");
             var second_people = people.normal_people_class.create_new("ZhangSan", 10, 10, "普通人");
@@ -55,36 +46,4 @@ describe('normal_people_class', function(){
             )
         }
     );
-
-    it(
-        "Test a function: " +
-        "This function to determine whether a person died." +
-        "In this test, the people named 张三 and his hp is 0." +
-        "The function should return true",
-        function(){
-            var mock_people = people.normal_people_class.create_new('张三', 0);
-            assert.equal(mock_people.is_dead(), true);
-        }
-    );
-
-    it(
-        "Test a function: " +
-        "This function to determine whether a person died." +
-        "In this test, the people named 张三 and his hp is 1." +
-        "The function should return false",
-        function(){
-            var mock_people = people.normal_people_class.create_new('张三', 1);
-            assert.equal(mock_people.is_dead(), false);
-        }
-    );
-
-    it (
-        "Test a function: " +
-        "This function return the people name." +
-        "Such as the people named 张三 and the get_name() return 张三",
-        function(){
-            var mock_people = people.normal_people_class.create_new('张三');
-            assert.equal(mock_people.get_name(), '张三');
-        }
-    )
 });
