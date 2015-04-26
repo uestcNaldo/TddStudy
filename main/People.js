@@ -3,6 +3,7 @@
  */
 
 var weapons_module = require("./weapons.js");
+var armor_module = require("./armor.js");
 
 var normal_people_class = {
     create_new : function(name, hp, aggressivity){
@@ -56,15 +57,15 @@ var normal_people_class = {
 };
 
 var warrior_class = {
-    create_new : function(name, hp, aggressivity, weapons_name, weapons_aggressivity, armor){
+    create_new : function(name, hp, aggressivity, weapons_name, weapons_aggressivity, defense_value){
         var warrior = normal_people_class.create_new(name, hp, aggressivity);
         warrior.role = '战士';
 
         warrior.weapons = weapons_module.weapons_class.create_new(weapons_name, weapons_aggressivity);
-        warrior.armor = armor ? armor : 0;
+        warrior.armor = armor_module.armor_class.create_new(defense_value);
 
         warrior.defense_process = function(damage_by_attacker){
-            damage_by_attacker -= this.armor;
+            damage_by_attacker -= this.armor.get_defense_value();
 
             return this.calculate_hp(damage_by_attacker);
         };
