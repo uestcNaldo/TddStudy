@@ -17,9 +17,16 @@ var weapons_class = {
             return 0;
         };
 
+        weapons.get_is_use_weapons = function(){
+            if (this.name){
+                return '用';
+            }
+            return '';
+        };
+
         weapons.get_weapons_name = function (){
             if (this.name){
-                return '用' + this.name;
+                return this.name;
             }
 
             return "";
