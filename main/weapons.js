@@ -9,6 +9,7 @@ var weapons_class = {
         weapons.name = name;
         weapons.aggressivity = aggressivity;
 
+        // 得到武器的攻击力
         weapons.get_aggressivity = function (){
             if (this.aggressivity){
                 return this.aggressivity;
@@ -17,6 +18,7 @@ var weapons_class = {
             return 0;
         };
 
+        // 得到使用什么武器
         weapons.get_weapons_name = function (){
             if (this.name){
                 return '用' + this.name;
